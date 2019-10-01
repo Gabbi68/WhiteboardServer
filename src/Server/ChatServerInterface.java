@@ -1,6 +1,6 @@
-package ChatServer;
+package Server;
 
-import TestClient.ClientChatInterface;
+import Client.ClientChatInterface;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

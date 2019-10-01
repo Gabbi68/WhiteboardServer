@@ -1,10 +1,10 @@
-package ChatServer;
+package Server;
 
 
 
 //Drive CLASS
 
-import TestClient.ClientChatInterface;
+import Client.ClientChatInterface;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -17,19 +17,15 @@ public class ChatServer extends UnicastRemoteObject implements ChatServerInterfa
     private ArrayList<ClientChatInterface> chatclients;
 
 
-
-
     protected ChatServer() throws RemoteException{
         chatclients = new ArrayList<ClientChatInterface>();
     }
 
 
-    @Override
     public synchronized void registerChatClient(ClientChatInterface chatclient) throws RemoteException {
         this.chatclients.add(chatclient);
     }
 
-    @Override
     public synchronized void broadcastChatMessage(String msg) throws RemoteException {
         int i = 0;
         while (i < chatclients.size()){
