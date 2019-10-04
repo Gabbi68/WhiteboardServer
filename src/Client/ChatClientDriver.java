@@ -14,8 +14,12 @@ public class ChatClientDriver {
         public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
 
             String chatserverURL = "rmi://localhost/RMIChatServer";
-            ChatServerInterface chatServer = (ChatServer) Naming.lookup(chatserverURL);
-            new Thread(new ChatClient(args[0],chatServer)).start();
+            ChatServerInterface chatServer = (ChatServerInterface) Naming.lookup(chatserverURL);
+
+            //Need to take user name as input
+            //Used when identifying different users
+
+            new Thread(new ChatClient("Martin",chatServer)).start();
 
 
 
